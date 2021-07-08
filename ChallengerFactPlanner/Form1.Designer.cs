@@ -33,7 +33,8 @@ namespace ChallengerFactPlanner
             this.btnFactSet = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.factSettingsUCview = new ChallengerFactPlanner.factSettingsUC();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,8 +51,9 @@ namespace ChallengerFactPlanner
             // 
             // btnFactSet
             // 
+            this.btnFactSet.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnFactSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFactSet.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFactSet.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFactSet.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnFactSet.Location = new System.Drawing.Point(406, 3);
             this.btnFactSet.Name = "btnFactSet";
@@ -62,8 +64,9 @@ namespace ChallengerFactPlanner
             // 
             // button1
             // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button1.Location = new System.Drawing.Point(150, 3);
             this.button1.Name = "button1";
@@ -71,11 +74,13 @@ namespace ChallengerFactPlanner
             this.button1.TabIndex = 2;
             this.button1.Text = "Factory Settings";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button2.Location = new System.Drawing.Point(662, 3);
             this.button2.Name = "button2";
@@ -84,26 +89,43 @@ namespace ChallengerFactPlanner
             this.button2.Text = "Parts Controle";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // button3
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 58);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1062, 395);
-            this.panel2.TabIndex = 1;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 80F);
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button3.Location = new System.Drawing.Point(0, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(1062, 538);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "¯\\_(ツ)_/¯";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // factSettingsUCview
+            // 
+            this.factSettingsUCview.BackColor = System.Drawing.Color.White;
+            this.factSettingsUCview.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.factSettingsUCview.Location = new System.Drawing.Point(0, 58);
+            this.factSettingsUCview.Name = "factSettingsUCview";
+            this.factSettingsUCview.Size = new System.Drawing.Size(1062, 480);
+            this.factSettingsUCview.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1062, 453);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1062, 538);
+            this.Controls.Add(this.factSettingsUCview);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button3);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
-            this.Text = "Challenger";
+            this.Text = "Challenger : WorkFlow Planner";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -115,7 +137,8 @@ namespace ChallengerFactPlanner
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnFactSet;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button3;
+        private factSettingsUC factSettingsUCview;
     }
 }
 
