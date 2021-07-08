@@ -19,10 +19,9 @@ namespace ChallengerFactPlanner
 
         private void factSettingsUC_Load(object sender, EventArgs e)
         {
-            this.machinesTableAdapter.Fill(this.challengerDBDataSet.Machines);
-            this.postsTableAdapter.Fill(this.challengerDBDataSet.Posts);
+           // this.machinesTableAdapter.Fill(this.challengerDBDataSet.Machines);
+            
             pnlMCTL.Enabled = false;
-            //pnlPostCTL.Enabled = false;
         }
 
         private void btnSchCTL_Click(object sender, EventArgs e)

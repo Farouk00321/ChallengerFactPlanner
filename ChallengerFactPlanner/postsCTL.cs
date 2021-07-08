@@ -21,7 +21,7 @@ namespace ChallengerFactPlanner
         {
             // TODO: This line of code loads data into the 'challengerDBDataSet.Posts' table. You can move, or remove it, as needed.
             this.postsTableAdapter.Fill(this.challengerDBDataSet.Posts);
-
+            pnlPostCTL.Enabled = false;
         }
 
         private void btnPostSave_Click(object sender, EventArgs e)
