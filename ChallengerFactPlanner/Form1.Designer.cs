@@ -30,11 +30,11 @@ namespace ChallengerFactPlanner
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnFactSet = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnFactSet = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.factSettingsUCview = new ChallengerFactPlanner.factSettingsUC();
+            this.factSettingsUC1 = new ChallengerFactPlanner.factSettingsUC();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,18 +49,18 @@ namespace ChallengerFactPlanner
             this.panel1.Size = new System.Drawing.Size(1062, 58);
             this.panel1.TabIndex = 0;
             // 
-            // btnFactSet
+            // button2
             // 
-            this.btnFactSet.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnFactSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFactSet.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFactSet.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnFactSet.Location = new System.Drawing.Point(406, 3);
-            this.btnFactSet.Name = "btnFactSet";
-            this.btnFactSet.Size = new System.Drawing.Size(250, 52);
-            this.btnFactSet.TabIndex = 1;
-            this.btnFactSet.Text = "Employees Controle";
-            this.btnFactSet.UseVisualStyleBackColor = true;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button2.Location = new System.Drawing.Point(662, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(250, 52);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Parts Controle";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -76,18 +76,18 @@ namespace ChallengerFactPlanner
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnFactSet
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.Location = new System.Drawing.Point(662, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(250, 52);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Parts Controle";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnFactSet.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnFactSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFactSet.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFactSet.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnFactSet.Location = new System.Drawing.Point(406, 3);
+            this.btnFactSet.Name = "btnFactSet";
+            this.btnFactSet.Size = new System.Drawing.Size(250, 52);
+            this.btnFactSet.TabIndex = 1;
+            this.btnFactSet.Text = "Employees Controle";
+            this.btnFactSet.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -103,14 +103,14 @@ namespace ChallengerFactPlanner
             this.button3.Text = "¯\\_(ツ)_/¯";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // factSettingsUCview
+            // factSettingsUC1
             // 
-            this.factSettingsUCview.BackColor = System.Drawing.Color.White;
-            this.factSettingsUCview.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.factSettingsUCview.Location = new System.Drawing.Point(0, 58);
-            this.factSettingsUCview.Name = "factSettingsUCview";
-            this.factSettingsUCview.Size = new System.Drawing.Size(1062, 480);
-            this.factSettingsUCview.TabIndex = 6;
+            this.factSettingsUC1.BackColor = System.Drawing.Color.White;
+            this.factSettingsUC1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.factSettingsUC1.Location = new System.Drawing.Point(0, 58);
+            this.factSettingsUC1.Name = "factSettingsUC1";
+            this.factSettingsUC1.Size = new System.Drawing.Size(1062, 480);
+            this.factSettingsUC1.TabIndex = 6;
             // 
             // Form1
             // 
@@ -118,7 +118,7 @@ namespace ChallengerFactPlanner
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1062, 538);
-            this.Controls.Add(this.factSettingsUCview);
+            this.Controls.Add(this.factSettingsUC1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,7 +138,7 @@ namespace ChallengerFactPlanner
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnFactSet;
         private System.Windows.Forms.Button button3;
-        private factSettingsUC factSettingsUCview;
+        private factSettingsUC factSettingsUC1;
     }
 }
 

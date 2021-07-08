@@ -61,6 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChallengerDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChallengerDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="factSettingsUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -72,6 +77,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="postsCTL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="postsCTL.Designer.cs">
+      <DependentUpon>postsCTL.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +98,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="postsCTL.resx">
+      <DependentUpon>postsCTL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -99,6 +113,17 @@
     <EmbeddedResource Include="schCTL.resx">
       <DependentUpon>schCTL.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ChallengerDBDataSet.xsc">
+      <DependentUpon>ChallengerDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ChallengerDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChallengerDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ChallengerDBDataSet.xss">
+      <DependentUpon>ChallengerDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

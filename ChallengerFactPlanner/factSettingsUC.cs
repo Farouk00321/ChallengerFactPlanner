@@ -19,7 +19,10 @@ namespace ChallengerFactPlanner
 
         private void factSettingsUC_Load(object sender, EventArgs e)
         {
-
+            this.machinesTableAdapter.Fill(this.challengerDBDataSet.Machines);
+            this.postsTableAdapter.Fill(this.challengerDBDataSet.Posts);
+            pnlMCTL.Enabled = false;
+            //pnlPostCTL.Enabled = false;
         }
 
         private void btnSchCTL_Click(object sender, EventArgs e)
@@ -53,9 +56,70 @@ namespace ChallengerFactPlanner
             else
             {
                 chkStatus.Text = "???";
-                chkStatus.CheckState = CheckState.Indeterminate;
             }
 
+        }
+        //--------------------------------------------Machines CTL-------------------------------------
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pnlMCTL.Enabled = true;
+                challengerDBDataSet.Machines.AddMachinesRow(challengerDBDataSet.Machines.NewMachinesRow());
+                machinesBindingSource.MoveLast();
+                txtRef.Focus();
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                challengerDBDataSet.Machines.RejectChanges();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            pnlMCTL.Enabled = true;
+            txtRef.Focus();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlMCTL.Enabled = false;
+            machinesBindingSource.ResetBindings(false);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pnlMCTL.Enabled = false;
+                machinesBindingSource.EndEdit();
+                machinesTableAdapter.Update(challengerDBDataSet.Machines);
+                dataGridView1.Refresh();
+                txtRef.Focus();
+                MessageBox.Show("Your data has been saved :)", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                challengerDBDataSet.Machines.RejectChanges();
+            }
+        }
+
+        private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this record?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    machinesBindingSource.RemoveCurrent();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            postsCTL window = new postsCTL();
+            window.ShowDialog();
         }
     }
 }

@@ -19,12 +19,12 @@ namespace ChallengerFactPlanner
 
         private void button1_Click(object sender, EventArgs e)
         {
-            factSettingsUCview.Show();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            factSettingsUCview.Hide();
+            
         }
     }
 }

@@ -29,6 +29,7 @@ namespace ChallengerFactPlanner
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@ namespace ChallengerFactPlanner
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtRef = new System.Windows.Forms.TextBox();
+            this.machinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.challengerDBDataSet = new ChallengerFactPlanner.ChallengerDBDataSet();
             this.chkStatus = new System.Windows.Forms.CheckBox();
             this.dtApplyAt = new System.Windows.Forms.DateTimePicker();
             this.chkCNC = new System.Windows.Forms.CheckBox();
@@ -43,30 +46,31 @@ namespace ChallengerFactPlanner
             this.numHeadstock = new System.Windows.Forms.NumericUpDown();
             this.btnSave = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.machineIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.referanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.headstockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.apllyAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.cboPostOP = new System.Windows.Forms.ComboBox();
-            this.chkPostStatus = new System.Windows.Forms.CheckBox();
-            this.txtPostRef = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btnSchCTL = new System.Windows.Forms.Button();
             this.pnlMCTL = new System.Windows.Forms.Panel();
+            this.postsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.challengerDBDataSet1 = new ChallengerFactPlanner.ChallengerDBDataSet();
+            this.btnSchCTL = new System.Windows.Forms.Button();
+            this.machinesTableAdapter = new ChallengerFactPlanner.ChallengerDBDataSetTableAdapters.MachinesTableAdapter();
+            this.postsTableAdapter = new ChallengerFactPlanner.ChallengerDBDataSetTableAdapters.PostsTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.machinesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.challengerDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHeadstock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.pnlMCTL.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.challengerDBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,29 +130,42 @@ namespace ChallengerFactPlanner
             // 
             // txtRef
             // 
+            this.txtRef.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.machinesBindingSource, "Referance", true));
             this.txtRef.Location = new System.Drawing.Point(88, 12);
             this.txtRef.Name = "txtRef";
             this.txtRef.Size = new System.Drawing.Size(150, 25);
-            this.txtRef.TabIndex = 6;
+            this.txtRef.TabIndex = 0;
+            // 
+            // machinesBindingSource
+            // 
+            this.machinesBindingSource.DataMember = "Machines";
+            this.machinesBindingSource.DataSource = this.challengerDBDataSet;
+            // 
+            // challengerDBDataSet
+            // 
+            this.challengerDBDataSet.DataSetName = "ChallengerDBDataSet";
+            this.challengerDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // chkStatus
             // 
             this.chkStatus.AutoSize = true;
+            this.chkStatus.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.machinesBindingSource, "Status", true));
             this.chkStatus.Location = new System.Drawing.Point(67, 92);
             this.chkStatus.Name = "chkStatus";
             this.chkStatus.Size = new System.Drawing.Size(49, 23);
-            this.chkStatus.TabIndex = 7;
+            this.chkStatus.TabIndex = 2;
             this.chkStatus.Text = "???";
             this.chkStatus.UseVisualStyleBackColor = true;
             this.chkStatus.CheckedChanged += new System.EventHandler(this.chkStatus_CheckedChanged);
             // 
             // dtApplyAt
             // 
+            this.dtApplyAt.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.machinesBindingSource, "ApllyAt", true));
             this.dtApplyAt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtApplyAt.Location = new System.Drawing.Point(409, 91);
             this.dtApplyAt.Name = "dtApplyAt";
             this.dtApplyAt.Size = new System.Drawing.Size(124, 25);
-            this.dtApplyAt.TabIndex = 8;
+            this.dtApplyAt.TabIndex = 5;
             // 
             // chkCNC
             // 
@@ -156,72 +173,147 @@ namespace ChallengerFactPlanner
             this.chkCNC.Location = new System.Drawing.Point(362, 13);
             this.chkCNC.Name = "chkCNC";
             this.chkCNC.Size = new System.Drawing.Size(179, 23);
-            this.chkCNC.TabIndex = 9;
+            this.chkCNC.TabIndex = 3;
             this.chkCNC.Text = "Check if machine is CNC";
             this.chkCNC.UseVisualStyleBackColor = true;
             this.chkCNC.CheckedChanged += new System.EventHandler(this.chkCNC_CheckedChanged);
             // 
             // comboBox1
             // 
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.machinesBindingSource, "Zone", true));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "S-A",
+            "S-B"});
             this.comboBox1.Location = new System.Drawing.Point(116, 51);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 25);
-            this.comboBox1.TabIndex = 10;
+            this.comboBox1.TabIndex = 1;
             // 
             // numHeadstock
             // 
+            this.numHeadstock.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.machinesBindingSource, "Headstock", true));
             this.numHeadstock.Enabled = false;
             this.numHeadstock.Location = new System.Drawing.Point(362, 51);
+            this.numHeadstock.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
             this.numHeadstock.Name = "numHeadstock";
             this.numHeadstock.Size = new System.Drawing.Size(45, 25);
-            this.numHeadstock.TabIndex = 11;
+            this.numHeadstock.TabIndex = 4;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(590, 354);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 30);
-            this.btnSave.TabIndex = 12;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.machineIDDataGridViewTextBoxColumn,
+            this.referanceDataGridViewTextBoxColumn,
+            this.zoneDataGridViewTextBoxColumn,
+            this.headstockDataGridViewTextBoxColumn,
+            this.statusDataGridViewCheckBoxColumn,
+            this.apllyAtDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.machinesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(24, 166);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(641, 182);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
+            // 
+            // machineIDDataGridViewTextBoxColumn
+            // 
+            this.machineIDDataGridViewTextBoxColumn.DataPropertyName = "MachineID";
+            this.machineIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.machineIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.machineIDDataGridViewTextBoxColumn.Name = "machineIDDataGridViewTextBoxColumn";
+            this.machineIDDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // referanceDataGridViewTextBoxColumn
+            // 
+            this.referanceDataGridViewTextBoxColumn.DataPropertyName = "Referance";
+            this.referanceDataGridViewTextBoxColumn.HeaderText = "Referance";
+            this.referanceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.referanceDataGridViewTextBoxColumn.Name = "referanceDataGridViewTextBoxColumn";
+            this.referanceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // zoneDataGridViewTextBoxColumn
+            // 
+            this.zoneDataGridViewTextBoxColumn.DataPropertyName = "Zone";
+            this.zoneDataGridViewTextBoxColumn.HeaderText = "Zone";
+            this.zoneDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.zoneDataGridViewTextBoxColumn.Name = "zoneDataGridViewTextBoxColumn";
+            this.zoneDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // headstockDataGridViewTextBoxColumn
+            // 
+            this.headstockDataGridViewTextBoxColumn.DataPropertyName = "Headstock";
+            this.headstockDataGridViewTextBoxColumn.HeaderText = "Headstock";
+            this.headstockDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.headstockDataGridViewTextBoxColumn.Name = "headstockDataGridViewTextBoxColumn";
+            this.headstockDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // statusDataGridViewCheckBoxColumn
+            // 
+            this.statusDataGridViewCheckBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewCheckBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.statusDataGridViewCheckBoxColumn.Name = "statusDataGridViewCheckBoxColumn";
+            this.statusDataGridViewCheckBoxColumn.Width = 70;
+            // 
+            // apllyAtDataGridViewTextBoxColumn
+            // 
+            this.apllyAtDataGridViewTextBoxColumn.DataPropertyName = "ApllyAt";
+            this.apllyAtDataGridViewTextBoxColumn.HeaderText = "Aplly At";
+            this.apllyAtDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.apllyAtDataGridViewTextBoxColumn.Name = "apllyAtDataGridViewTextBoxColumn";
+            this.apllyAtDataGridViewTextBoxColumn.Width = 125;
             // 
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(509, 354);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 30);
-            this.btnEdit.TabIndex = 14;
+            this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(428, 354);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 30);
-            this.btnCancel.TabIndex = 15;
+            this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnNew
             // 
             this.btnNew.Location = new System.Drawing.Point(347, 354);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 30);
-            this.btnNew.TabIndex = 16;
+            this.btnNew.TabIndex = 0;
             this.btnNew.Text = "&New";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // groupBox1
             // 
@@ -233,142 +325,10 @@ namespace ChallengerFactPlanner
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Location = new System.Drawing.Point(21, 68);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(691, 395);
+            this.groupBox1.Size = new System.Drawing.Size(675, 395);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Machines Controle Unit";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.cboPostOP);
-            this.groupBox2.Controls.Add(this.chkPostStatus);
-            this.groupBox2.Controls.Add(this.txtPostRef);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(735, 68);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 395);
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Posts Controle Unit";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(24, 354);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 30);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "&New";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(88, 354);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 30);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "&Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(155, 354);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(58, 30);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "&Edit";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(24, 166);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(253, 182);
-            this.dataGridView2.TabIndex = 13;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(219, 354);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(58, 30);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "&Save";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // cboPostOP
-            // 
-            this.cboPostOP.FormattingEnabled = true;
-            this.cboPostOP.Location = new System.Drawing.Point(104, 76);
-            this.cboPostOP.Name = "cboPostOP";
-            this.cboPostOP.Size = new System.Drawing.Size(146, 25);
-            this.cboPostOP.TabIndex = 10;
-            // 
-            // chkPostStatus
-            // 
-            this.chkPostStatus.AutoSize = true;
-            this.chkPostStatus.Location = new System.Drawing.Point(104, 116);
-            this.chkPostStatus.Name = "chkPostStatus";
-            this.chkPostStatus.Size = new System.Drawing.Size(49, 23);
-            this.chkPostStatus.TabIndex = 7;
-            this.chkPostStatus.Text = "???";
-            this.chkPostStatus.UseVisualStyleBackColor = true;
-            // 
-            // txtPostRef
-            // 
-            this.txtPostRef.Location = new System.Drawing.Point(101, 36);
-            this.txtPostRef.Name = "txtPostRef";
-            this.txtPostRef.Size = new System.Drawing.Size(194, 25);
-            this.txtPostRef.TabIndex = 6;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 118);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 19);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Status :";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 79);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 19);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Operation :";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(20, 39);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 19);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Referance :";
-            // 
-            // btnSchCTL
-            // 
-            this.btnSchCTL.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnSchCTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchCTL.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSchCTL.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnSchCTL.Location = new System.Drawing.Point(368, 21);
-            this.btnSchCTL.Name = "btnSchCTL";
-            this.btnSchCTL.Size = new System.Drawing.Size(294, 41);
-            this.btnSchCTL.TabIndex = 19;
-            this.btnSchCTL.Text = "Open Work Schedule Controle Interface";
-            this.btnSchCTL.UseVisualStyleBackColor = true;
-            this.btnSchCTL.Click += new System.EventHandler(this.btnSchCTL_Click);
             // 
             // pnlMCTL
             // 
@@ -389,26 +349,73 @@ namespace ChallengerFactPlanner
             this.pnlMCTL.Size = new System.Drawing.Size(641, 137);
             this.pnlMCTL.TabIndex = 17;
             // 
+            // postsBindingSource
+            // 
+            this.postsBindingSource.DataMember = "Posts";
+            this.postsBindingSource.DataSource = this.challengerDBDataSet1;
+            // 
+            // challengerDBDataSet1
+            // 
+            this.challengerDBDataSet1.DataSetName = "ChallengerDBDataSet";
+            this.challengerDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnSchCTL
+            // 
+            this.btnSchCTL.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnSchCTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchCTL.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSchCTL.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnSchCTL.Location = new System.Drawing.Point(730, 162);
+            this.btnSchCTL.Name = "btnSchCTL";
+            this.btnSchCTL.Size = new System.Drawing.Size(294, 41);
+            this.btnSchCTL.TabIndex = 19;
+            this.btnSchCTL.Text = "Open Work Schedule Controle Interface";
+            this.btnSchCTL.UseVisualStyleBackColor = true;
+            this.btnSchCTL.Click += new System.EventHandler(this.btnSchCTL_Click);
+            // 
+            // machinesTableAdapter
+            // 
+            this.machinesTableAdapter.ClearBeforeFill = true;
+            // 
+            // postsTableAdapter
+            // 
+            this.postsTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.Location = new System.Drawing.Point(730, 234);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(294, 41);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Open Posts Controle Interface";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // factSettingsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSchCTL);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "factSettingsUC";
             this.Size = new System.Drawing.Size(1062, 480);
             this.Load += new System.EventHandler(this.factSettingsUC_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.machinesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.challengerDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHeadstock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.pnlMCTL.ResumeLayout(false);
             this.pnlMCTL.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.postsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.challengerDBDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -433,19 +440,20 @@ namespace ChallengerFactPlanner
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox cboPostOP;
-        private System.Windows.Forms.CheckBox chkPostStatus;
-        private System.Windows.Forms.TextBox txtPostRef;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnSchCTL;
         private System.Windows.Forms.Panel pnlMCTL;
+        private System.Windows.Forms.BindingSource machinesBindingSource;
+        private ChallengerDBDataSet challengerDBDataSet;
+        private ChallengerDBDataSetTableAdapters.MachinesTableAdapter machinesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn machineIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn referanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn headstockDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn statusDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apllyAtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource postsBindingSource;
+        private ChallengerDBDataSet challengerDBDataSet1;
+        private ChallengerDBDataSetTableAdapters.PostsTableAdapter postsTableAdapter;
+        private System.Windows.Forms.Button button1;
     }
 }
