@@ -43,18 +43,18 @@ namespace ChallengerFactPlanner
             this.cboTime = new System.Windows.Forms.ComboBox();
             this.btnNew = new System.Windows.Forms.Button();
             this.panelCTL = new System.Windows.Forms.Panel();
-            this.challengerDBDataSet = new ChallengerFactPlanner.ChallengerDBDataSet();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.scheduleTableAdapter = new ChallengerFactPlanner.ChallengerDBDataSetTableAdapters.ScheduleTableAdapter();
+            this.challengerDBDataSet = new ChallengerFactPlanner.ChallengerDBDataSet();
             this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ndRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scheduleTableAdapter = new ChallengerFactPlanner.ChallengerDBDataSetTableAdapters.ScheduleTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stRange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndRange)).BeginInit();
             this.panelCTL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.challengerDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.challengerDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,13 +111,13 @@ namespace ChallengerFactPlanner
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(276, 136);
+            this.dataGridView1.Size = new System.Drawing.Size(304, 136);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView1_KeyPress);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(453, 174);
+            this.btnSave.Location = new System.Drawing.Point(471, 174);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(48, 31);
             this.btnSave.TabIndex = 19;
@@ -127,7 +127,7 @@ namespace ChallengerFactPlanner
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(399, 174);
+            this.btnEdit.Location = new System.Drawing.Point(417, 174);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(48, 31);
             this.btnEdit.TabIndex = 20;
@@ -137,7 +137,7 @@ namespace ChallengerFactPlanner
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(336, 174);
+            this.btnCancel.Location = new System.Drawing.Point(354, 174);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(57, 31);
             this.btnCancel.TabIndex = 21;
@@ -188,7 +188,7 @@ namespace ChallengerFactPlanner
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(282, 174);
+            this.btnNew.Location = new System.Drawing.Point(300, 174);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(48, 31);
             this.btnNew.TabIndex = 25;
@@ -210,19 +210,15 @@ namespace ChallengerFactPlanner
             this.panelCTL.Size = new System.Drawing.Size(187, 136);
             this.panelCTL.TabIndex = 26;
             // 
-            // challengerDBDataSet
-            // 
-            this.challengerDBDataSet.DataSetName = "ChallengerDBDataSet";
-            this.challengerDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // scheduleBindingSource
             // 
             this.scheduleBindingSource.DataMember = "Schedule";
             this.scheduleBindingSource.DataSource = this.challengerDBDataSet;
             // 
-            // scheduleTableAdapter
+            // challengerDBDataSet
             // 
-            this.scheduleTableAdapter.ClearBeforeFill = true;
+            this.challengerDBDataSet.DataSetName = "ChallengerDBDataSet";
+            this.challengerDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // timeDataGridViewTextBoxColumn
             // 
@@ -230,6 +226,7 @@ namespace ChallengerFactPlanner
             this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
             this.timeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
+            this.timeDataGridViewTextBoxColumn.Width = 125;
             // 
             // stRangeDataGridViewTextBoxColumn
             // 
@@ -247,12 +244,16 @@ namespace ChallengerFactPlanner
             this.ndRangeDataGridViewTextBoxColumn.Name = "ndRangeDataGridViewTextBoxColumn";
             this.ndRangeDataGridViewTextBoxColumn.Width = 60;
             // 
+            // scheduleTableAdapter
+            // 
+            this.scheduleTableAdapter.ClearBeforeFill = true;
+            // 
             // schCTL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(515, 233);
+            this.ClientSize = new System.Drawing.Size(541, 233);
             this.Controls.Add(this.panelCTL);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnCancel);
@@ -262,15 +263,15 @@ namespace ChallengerFactPlanner
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "schCTL";
-            this.Text = "schCTL";
+            this.Text = "Schedule Controle";
             this.Load += new System.EventHandler(this.schCTL_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stRange)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndRange)).EndInit();
             this.panelCTL.ResumeLayout(false);
             this.panelCTL.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.challengerDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.challengerDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
