@@ -35,6 +35,7 @@ namespace ChallengerFactPlanner
             this.btnFactSet = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.factSettingsUC1 = new ChallengerFactPlanner.factSettingsUC();
+            this.employeesCTL_UC1 = new ChallengerFactPlanner.employeesCTL_UC();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +89,7 @@ namespace ChallengerFactPlanner
             this.btnFactSet.TabIndex = 1;
             this.btnFactSet.Text = "Employees Controle";
             this.btnFactSet.UseVisualStyleBackColor = true;
+            this.btnFactSet.Click += new System.EventHandler(this.btnFactSet_Click);
             // 
             // button3
             // 
@@ -112,12 +114,22 @@ namespace ChallengerFactPlanner
             this.factSettingsUC1.Size = new System.Drawing.Size(1062, 480);
             this.factSettingsUC1.TabIndex = 6;
             // 
+            // employeesCTL_UC1
+            // 
+            this.employeesCTL_UC1.BackColor = System.Drawing.Color.White;
+            this.employeesCTL_UC1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeesCTL_UC1.Location = new System.Drawing.Point(0, 58);
+            this.employeesCTL_UC1.Name = "employeesCTL_UC1";
+            this.employeesCTL_UC1.Size = new System.Drawing.Size(1062, 480);
+            this.employeesCTL_UC1.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1062, 538);
+            this.Controls.Add(this.employeesCTL_UC1);
             this.Controls.Add(this.factSettingsUC1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
@@ -139,6 +151,7 @@ namespace ChallengerFactPlanner
         private System.Windows.Forms.Button btnFactSet;
         private System.Windows.Forms.Button button3;
         private factSettingsUC factSettingsUC1;
+        private employeesCTL_UC employeesCTL_UC1;
     }
 }
 
